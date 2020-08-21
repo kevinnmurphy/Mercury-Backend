@@ -1,0 +1,73 @@
+  [1m[35m (187.8ms)[0m  [1m[35mCREATE DATABASE "mercury_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (67.7ms)[0m  [1m[35mCREATE DATABASE "mercury_backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1328596142646692115)[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTrips (20200821034414)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200821034414"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLocations (20200821034503)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.1ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "name" character varying, "lat" decimal, "lon" decimal, "trip_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_d961793add"
+FOREIGN KEY ("trip_id")
+  REFERENCES "trips" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_locations_on_trip_id" ON "locations"  ("trip_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200821034503"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-21 04:02:46.271813"], ["updated_at", "2020-08-21 04:02:46.271813"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1328596142646692115)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-08-21 10:51:36 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Kevin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Kevin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.8ms | Allocations: 481)
+Completed 200 OK in 23ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 2632)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 10:51:39 -0400
+Processing by TripsController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 1572)
+
+
+  
+ArgumentError (No association found for name `days'. Has it been defined yet?):
+  
+app/models/trip.rb:4:in `<class:Trip>'
+app/models/trip.rb:1:in `<main>'
+app/controllers/trips_controller.rb:4:in `index'
+Started GET "/trips" for ::1 at 2020-08-21 10:52:33 -0400
+Processing by TripsController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1813)
+
+
+  
+NoMethodError (undefined method `delete_if' for :locations:Symbol):
+  
+app/controllers/trips_controller.rb:6:in `new'
+app/controllers/trips_controller.rb:6:in `index'
+Started GET "/trips" for ::1 at 2020-08-21 10:54:52 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TripsController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1947)
+
+
+  
+NoMethodError (undefined method `delete_if' for :locations:Symbol):
+  
+app/controllers/trips_controller.rb:6:in `new'
+app/controllers/trips_controller.rb:6:in `index'
+Started GET "/trips" for ::1 at 2020-08-21 10:55:39 -0400
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (5.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 2233)
+
+
