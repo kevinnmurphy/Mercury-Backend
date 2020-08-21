@@ -2,8 +2,7 @@ class LocationsController < ApplicationController
 
   def index 
     locations = Location.all
-    options = { include: :locations }
-    render json: LocationSerializer.new(locations, options).serialized_json
+    render json: LocationSerializer.new(locations).serialized_json
   end
 
   def show
@@ -12,10 +11,10 @@ class LocationsController < ApplicationController
   end
 
   def create
+    trip = Trip.find_by_id(params[])
     location = Location.new(location_params)
     if location.save
-      options = { include: :locations }
-      render json: LocationSerializer.new(location, options).serialized_json
+      render json: LocationSerializer.new(location).serialized_json
     else
       render json: { error: 'Could not be created' }
     end
@@ -24,7 +23,7 @@ class LocationsController < ApplicationController
   def update
     location = location = Location.find(params[:id])
     location.update(location_params)
-    render json: LocationSerializer.new(location, options)
+    render json: LocationSerializer.new(location)
   end
 
   def destroy
@@ -37,9 +36,7 @@ class LocationsController < ApplicationController
   private
   
   def location_params
-    params.require(:location).permit(:name,
-      locations_attributes: [:name, :lat, :lon]
-    )
+    params.require(:location).permit(:name, :lat, :lon, :trip_id)
   end
 
 end

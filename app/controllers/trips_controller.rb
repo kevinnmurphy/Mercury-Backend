@@ -2,8 +2,8 @@ class TripsController < ApplicationController
 
   def index 
     trips = Trip.all
-    options = { include: :locations }
-    render json: TripSerializer.new(trips).serialized_json
+    options = { include: [:locations] }
+    render json: TripSerializer.new(trips, options).serialized_json
   end
 
   def show
@@ -14,7 +14,7 @@ class TripsController < ApplicationController
   def create
     trip = Trip.new(trip_params)
     if trip.save
-      options = { include: :locations }
+      options = { include: [:locations] }
       render json: TripSerializer.new(trip, options).serialized_json
     else
       render json: { error: 'Could not be created' }

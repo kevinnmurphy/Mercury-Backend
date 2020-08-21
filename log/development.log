@@ -71,3 +71,156 @@ Processing by TripsController#index as HTML
 Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 2233)
 
 
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "mercury_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "mercury_backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1328596142646692115)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1328596142646692115)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/trips" for ::1 at 2020-08-21 11:10:57 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 2469)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 11:20:03 -0400
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2175)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 11:24:21 -0400
+Processing by TripsController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 1557)
+
+
+  
+NoMethodError (undefined method `delete_if' for :locations:Symbol):
+  
+app/controllers/trips_controller.rb:6:in `new'
+app/controllers/trips_controller.rb:6:in `index'
+Started GET "/trips" for ::1 at 2020-08-21 11:24:33 -0400
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 2310)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 12:00:53 -0400
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 2116)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 12:06:04 -0400
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 3.4ms | Allocations: 2200)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Create (4.0ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Saturday Shopping"], ["created_at", "2020-08-21 16:23:34.676640"], ["updated_at", "2020-08-21 16:23:34.676640"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Create (0.2ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sunday Brunch"], ["created_at", "2020-08-21 16:23:34.685695"], ["updated_at", "2020-08-21 16:23:34.685695"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/trips" for ::1 at 2020-08-21 12:23:51 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 55ms (Views: 0.2ms | ActiveRecord: 9.5ms | Allocations: 14710)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 12:28:23 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 4165)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 12:29:08 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 4164)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 12:29:21 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 37ms (Views: 0.1ms | ActiveRecord: 7.5ms | Allocations: 11738)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 12:37:21 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 3.0ms | Allocations: 4268)
+
+
+Started GET "/trips" for ::1 at 2020-08-21 12:39:21 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 4164)
+
+
