@@ -1,14 +1,15 @@
 class TripsController < ApplicationController
 
   def index 
-    trips = Trip.all
+    trips = Trip.all.order(id: :asc)
     options = { include: [:locations] }
     render json: TripSerializer.new(trips, options).serialized_json
   end
 
   def show
     trip = Trip.find(params[:id])
-    render json: trip
+    options = { include: [:locations] }
+    render json: TripSerializer.new(trips, options).serialized_json
   end
 
   def create
@@ -24,6 +25,7 @@ class TripsController < ApplicationController
   def update
     trip = trip = Trip.find(params[:id])
     trip.update(trip_params)
+    options = { include: [:locations] }
     render json: TripSerializer.new(trip, options)
   end
 
@@ -37,7 +39,7 @@ class TripsController < ApplicationController
   private
   
   def trip_params
-    params.require(:trip).permit(:name,
+    params.require(:trip).permit(:name, :description,
       locations_attributes: [:name, :lat, :lon]
     )
   end
