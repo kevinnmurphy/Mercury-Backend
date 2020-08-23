@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-trip1 = Trip.create(name: 'Saturday Shopping')
-trip2 = Trip.create(name: 'Sunday Brunch')
+trip1 = Trip.create(name: 'Saturday Shopping', description: "Time to buy, everything" )
+trip2 = Trip.create(name: 'Sunday Brunch', description: "Lazy driving..." )
 
 Location.create([
     {name: 'Sugar Hill', lat: 34.1, lon: -84.0, trip_id: '1'},
