@@ -11,7 +11,6 @@ class LocationsController < ApplicationController
   end
 
   def create
-    trip = Trip.find_by_id(params[])
     location = Location.new(location_params)
     if location.save
       render json: LocationSerializer.new(location).serialized_json

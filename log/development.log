@@ -20885,3 +20885,2442 @@ Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 2983)
 Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 5.8ms | Allocations: 10456)
 
 
+Started GET "/trips" for ::1 at 2020-08-25 21:48:13 -0400
+Started GET "/locations" for ::1 at 2020-08-25 21:48:13 -0400
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (8.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 0.8ms | ActiveRecord: 8.2ms | Allocations: 2249)
+
+
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (1.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 4.5ms | Allocations: 7897)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 22:09:34 -0400
+Started GET "/locations" for ::1 at 2020-08-25 22:09:34 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (17.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 85ms (Views: 0.5ms | ActiveRecord: 17.5ms | Allocations: 3107)
+
+
+  [1m[35m (11.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 151ms (Views: 0.3ms | ActiveRecord: 84.3ms | Allocations: 10646)
+
+
+Started PATCH "/trips/2" for ::1 at 2020-08-25 22:19:50 -0400
+Processing by TripsController#update as JSON
+  Parameters: {"name"=>"Sunday Brunch", "description"=>"Lazy sundays...", "id"=>"2", "trip"=>{"name"=>"Sunday Brunch", "description"=>"Lazy sundays..."}}
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:26:in `update'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 1.2ms | Allocations: 3661)
+
+
+Started PATCH "/trips/2" for ::1 at 2020-08-25 22:19:51 -0400
+Processing by TripsController#update as JSON
+  Parameters: {"name"=>"Sunday Brunch", "description"=>"Lazy sundays...", "id"=>"2", "trip"=>{"name"=>"Sunday Brunch", "description"=>"Lazy sundays..."}}
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:26:in `update'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 1.3ms | Allocations: 3549)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 22:33:46 -0400
+Started GET "/locations" for ::1 at 2020-08-25 22:33:46 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 2.7ms | Allocations: 3104)
+
+
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 47ms (Views: 0.1ms | ActiveRecord: 8.0ms | Allocations: 10389)
+
+
+Started GET "/locations" for ::1 at 2020-08-25 22:50:44 -0400
+Started GET "/trips" for ::1 at 2020-08-25 22:50:44 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 3090)
+
+
+  [1m[35m (9.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 15.4ms | Allocations: 10385)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 22:52:57 -0400
+Started GET "/locations" for ::1 at 2020-08-25 22:52:57 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (4.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Processing by LocationsController#index as */*
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2893)
+
+
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 11.7ms | Allocations: 10465)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 22:55:36 -0400
+Started GET "/locations" for ::1 at 2020-08-25 22:55:36 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2171)
+
+
+  [1m[36mLocation Load (33.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 76ms (Views: 0.2ms | ActiveRecord: 55.0ms | Allocations: 10465)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 22:59:00 -0400
+Started GET "/locations" for ::1 at 2020-08-25 22:59:00 -0400
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2172)
+
+
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 3.9ms | Allocations: 7788)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 22:59:36 -0400
+Started GET "/locations" for ::1 at 2020-08-25 22:59:36 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 2987)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 6.9ms | Allocations: 10198)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:00:12 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:00:12 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (13.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2188)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 42ms (Views: 0.1ms | ActiveRecord: 18.8ms | Allocations: 10496)
+
+
+Started GET "/locations" for ::1 at 2020-08-25 23:00:42 -0400
+Started GET "/trips" for ::1 at 2020-08-25 23:00:42 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2956)
+
+
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 5.0ms | Allocations: 10202)
+
+
+Started POST "/locations" for ::1 at 2020-08-25 23:01:24 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test", "lat"=>"20", "lon"=>"20", "trip_id"=>{"id"=>11, "name"=>"Monday", "description"=>"Back to the grind", "updated_at"=>"2020-08-24T15:00:25.291Z", "element"=>{}, "tripCollection"=>{}, "locationCollection"=>{}}, "location"=>{"name"=>"Test", "lat"=>"20", "lon"=>"20", "trip_id"=>{"id"=>11, "name"=>"Monday", "description"=>"Back to the grind", "updated_at"=>"2020-08-24T15:00:25.291Z", "element"=>{}, "tripCollection"=>{}, "locationCollection"=>{}}}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 145)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-25 23:02:07 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:02:07 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2955)
+
+
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 5.6ms | Allocations: 10200)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:02:50 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:02:50 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (39.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  [1m[36mLocation Load (51.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 68ms (Views: 0.1ms | ActiveRecord: 51.5ms | Allocations: 6875)
+
+
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 72ms (Views: 0.1ms | ActiveRecord: 44.7ms | Allocations: 10096)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:03:22 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:03:22 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2956)
+
+
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 8.3ms | Allocations: 10202)
+
+
+Started POST "/locations" for ::1 at 2020-08-25 23:03:42 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test", "lat"=>"20", "lon"=>"20", "trip_id"=>"11", "location"=>{"name"=>"Test", "lat"=>"20", "lon"=>"20", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-25 23:06:20 -0400
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 6.1ms | Allocations: 7785)
+
+
+Started GET "/locations" for ::1 at 2020-08-25 23:06:25 -0400
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2169)
+
+
+Started GET "/locations" for ::1 at 2020-08-25 23:09:43 -0400
+Started GET "/trips" for ::1 at 2020-08-25 23:09:43 -0400
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (36.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (5.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 191ms (Views: 0.1ms | ActiveRecord: 163.7ms | Allocations: 15193)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 88ms (Views: 0.2ms | ActiveRecord: 57.8ms | Allocations: 18703)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:10:01 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:10:01 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (2.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 2896)
+
+
+  [1m[35m (11.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 38ms (Views: 0.1ms | ActiveRecord: 20.5ms | Allocations: 10345)
+
+
+Started GET "/locations" for ::1 at 2020-08-25 23:10:17 -0400
+Started GET "/trips" for ::1 at 2020-08-25 23:10:17 -0400
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (2.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (1.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 5.5ms | Allocations: 9218)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 52ms (Views: 0.1ms | ActiveRecord: 19.5ms | Allocations: 23198)
+
+
+Started PATCH "/locations/2" for ::1 at 2020-08-25 23:10:28 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Alpharetta", "description"=>"34.08", "id"=>"2", "location"=>{"name"=>"Alpharetta"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 4241)
+
+
+Started PATCH "/locations/1" for ::1 at 2020-08-25 23:10:33 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Sugar Hills", "description"=>"34.1", "id"=>"1", "location"=>{"name"=>"Sugar Hills"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mLocation Update (6.6ms)[0m  [1m[33mUPDATE "locations" SET "name" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["name", "Sugar Hills"], ["updated_at", "2020-08-26 03:10:33.490087"], ["id", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 26ms (Views: 0.5ms | ActiveRecord: 15.2ms | Allocations: 4625)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:10:38 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:10:38 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (5.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 5.2ms | Allocations: 3664)
+
+
+  [1m[36mLocation Load (4.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (12.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (4.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 38ms (Views: 0.1ms | ActiveRecord: 23.4ms | Allocations: 10360)
+
+
+Started PATCH "/locations/1" for ::1 at 2020-08-25 23:10:45 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Sugar Hill", "description"=>"34.1", "id"=>"1", "location"=>{"name"=>"Sugar Hill"}}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mLocation Update (2.4ms)[0m  [1m[33mUPDATE "locations" SET "name" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["name", "Sugar Hill"], ["updated_at", "2020-08-26 03:10:45.851409"], ["id", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 3.8ms | Allocations: 4553)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:10:47 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:10:47 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (8.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (20.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 20.2ms | Allocations: 3661)
+
+
+  [1m[36mLocation Load (14.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (4.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 57ms (Views: 0.1ms | ActiveRecord: 42.4ms | Allocations: 10088)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:11:07 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:11:07 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (4.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 3151)
+
+
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 10.1ms | Allocations: 10345)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:21:21 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:21:21 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (15.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (6.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 6.7ms | Allocations: 3030)
+
+
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 25.9ms | Allocations: 11794)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:23:54 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:23:54 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 2896)
+
+
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 12.4ms | Allocations: 10337)
+
+
+Started POST "/locations" for ::1 at 2020-08-25 23:24:15 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test", "lat"=>20, "lon"=>20, "trip_id"=>"11", "location"=>{"name"=>"Test", "lat"=>20, "lon"=>20, "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 112)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-25 23:26:19 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:26:19 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (3.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 60ms (Views: 0.1ms | ActiveRecord: 36.8ms | Allocations: 13848)
+
+
+  [1m[36mLocation Load (4.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 78ms (Views: 0.2ms | ActiveRecord: 31.9ms | Allocations: 18319)
+
+
+Started POST "/locations" for ::1 at 2020-08-25 23:26:32 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test", "lat"=>23, "lon"=>23, "trip_id"=>"11", "location"=>{"name"=>"Test", "lat"=>23, "lon"=>23, "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-25 23:26:44 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:26:44 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 11.8ms | Allocations: 11607)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 18.1ms | Allocations: 19944)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mLocation Create (10.8ms)[0m  [1m[32mINSERT INTO "locations" ("name", "lat", "lon", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["lat", "20.0"], ["lon", "20.0"], ["trip_id", 11], ["created_at", "2020-08-26 03:27:44.812596"], ["updated_at", "2020-08-26 03:27:44.812596"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/locations" for ::1 at 2020-08-25 23:27:51 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test", "lat"=>20, "lon"=>20, "trip_id"=>"11", "location"=>{"name"=>"Test", "lat"=>20, "lon"=>20, "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-25 23:27:53 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:27:53 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 2488)
+
+
+  [1m[36mTrip Load (4.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 11.8ms | Allocations: 10496)
+
+
+Started PATCH "/locations/7" for ::1 at 2020-08-25 23:28:04 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Testing", "description"=>"20.0", "id"=>"7", "location"=>{"name"=>"Testing"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "name" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["name", "Testing"], ["updated_at", "2020-08-26 03:28:04.347217"], ["id", 7]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 2.2ms | Allocations: 4911)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:29:58 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:29:58 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (11.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (11.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 11.4ms | Allocations: 3129)
+
+
+  [1m[35m (10.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 41ms (Views: 0.1ms | ActiveRecord: 25.9ms | Allocations: 10598)
+
+
+Started PATCH "/locations/7" for ::1 at 2020-08-25 23:30:05 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Testingasdf", "description"=>"20.0", "id"=>"7", "location"=>{"name"=>"Testingasdf"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mLocation Update (0.3ms)[0m  [1m[33mUPDATE "locations" SET "name" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["name", "Testingasdf"], ["updated_at", "2020-08-26 03:30:05.657822"], ["id", 7]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 4553)
+
+
+Started PATCH "/locations/7" for ::1 at 2020-08-25 23:30:11 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Testingasdf", "description"=>"20.0", "id"=>"7", "location"=>{"name"=>"Testingasdf"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 3734)
+
+
+Started PATCH "/locations/7" for ::1 at 2020-08-25 23:30:20 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Testingasdf", "description"=>"20.0", "id"=>"7", "location"=>{"name"=>"Testingasdf"}}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 3732)
+
+
+Started PATCH "/locations/7" for ::1 at 2020-08-25 23:30:25 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Testingasdf", "description"=>"20.0", "id"=>"7", "location"=>{"name"=>"Testingasdf"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 3734)
+
+
+Started PATCH "/trips/1" for ::1 at 2020-08-25 23:30:32 -0400
+Processing by TripsController#update as JSON
+  Parameters: {"name"=>"Saturday Shopping", "description"=>"Time to find good deals", "id"=>"1", "trip"=>{"name"=>"Saturday Shopping", "description"=>"Time to find good deals"}}
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:26:in `update'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+Completed 200 OK in 18ms (Views: 13.7ms | ActiveRecord: 0.9ms | Allocations: 4324)
+
+
+Started DELETE "/locations/7" for ::1 at 2020-08-25 23:30:38 -0400
+Processing by LocationsController#destroy as JSON
+  Parameters: {"id"=>"7", "location"=>{}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:30:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:31:in `destroy'
+  [1m[36mLocation Destroy (0.3ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/locations_controller.rb:31:in `destroy'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:31:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.3ms | Allocations: 2518)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:30:41 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:30:41 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Processing by LocationsController#index as */*
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (5.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 5.5ms | Allocations: 5612)
+
+
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 11.3ms | Allocations: 10350)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:32:48 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:32:48 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (4.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 4.9ms | Allocations: 2111)
+
+
+  [1m[36mTrip Load (17.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (10.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 61ms (Views: 0.2ms | ActiveRecord: 39.4ms | Allocations: 10345)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mLocation Create (9.6ms)[0m  [1m[32mINSERT INTO "locations" ("name", "lat", "lon", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["lat", "20.0"], ["lon", "20.0"], ["trip_id", 11], ["created_at", "2020-08-26 03:32:57.267415"], ["updated_at", "2020-08-26 03:32:57.267415"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/trips" for ::1 at 2020-08-25 23:33:00 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:33:00 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (18.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 3129)
+
+
+  [1m[35m (32.9ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (10.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (5.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (24.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (5.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 116ms (Views: 0.3ms | ActiveRecord: 99.4ms | Allocations: 10865)
+
+
+Started PATCH "/locations/8" for ::1 at 2020-08-25 23:33:08 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Test", "description"=>"20.0", "id"=>"8", "location"=>{"name"=>"Test"}}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 3732)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:34:33 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:34:33 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 3129)
+
+
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (5.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 12.1ms | Allocations: 10593)
+
+
+Started PATCH "/locations/8" for ::1 at 2020-08-25 23:34:41 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Test", "description"=>"20.0", "id"=>"8", "location"=>{"name"=>"Test"}}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 3732)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mLocation Create (0.6ms)[0m  [1m[32mINSERT INTO "locations" ("name", "lat", "lon", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test2"], ["lat", "30.0"], ["lon", "30.0"], ["trip_id", 11], ["created_at", "2020-08-26 03:38:13.097812"], ["updated_at", "2020-08-26 03:38:13.097812"]]
+  [1m[35m (9.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/trips" for ::1 at 2020-08-25 23:38:19 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:38:19 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2577)
+
+
+  [1m[36mTrip Load (18.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 37ms (Views: 0.1ms | ActiveRecord: 24.0ms | Allocations: 11391)
+
+
+Started PATCH "/locations/9" for ::1 at 2020-08-25 23:38:33 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Test2", "description"=>"30.0", "id"=>"9", "location"=>{"name"=>"Test2"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 3732)
+
+
+Started GET "/trips" for ::1 at 2020-08-25 23:39:57 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:39:57 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (3.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 3.4ms | Allocations: 3006)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 4.4ms | Allocations: 10988)
+
+
+Started POST "/locations" for ::1 at 2020-08-25 23:40:31 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"30.0", "lon"=>"30.0", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"30.0", "lon"=>"30.0", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-25 23:43:02 -0400
+Started GET "/locations" for ::1 at 2020-08-25 23:43:02 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 3392)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 6.3ms | Allocations: 11106)
+
+
+Started POST "/locations" for ::1 at 2020-08-25 23:44:19 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Buckhead", "lat"=>33.57, "lon"=>-83.36, "trip_id"=>"3", "location"=>{"name"=>"Buckhead", "lat"=>33.57, "lon"=>-83.36, "trip_id"=>"3"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started POST "/locations" for ::1 at 2020-08-25 23:45:01 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"34", "lon"=>"34", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"34", "lon"=>"34", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:17:29 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:17:29 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (9.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mTrip Load (7.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 25ms (Views: 0.7ms | ActiveRecord: 9.5ms | Allocations: 3315)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 110ms (Views: 0.1ms | ActiveRecord: 12.1ms | Allocations: 11191)
+
+
+Started POST "/trips" for ::1 at 2020-08-26 09:17:40 -0400
+Processing by TripsController#create as JSON
+  Parameters: {"name"=>"Test", "description"=>"Test", "trip"=>{"name"=>"Test", "description"=>"Test"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[36mTrip Create (7.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test"], ["description", "Test"], ["created_at", "2020-08-26 13:17:40.631946"], ["updated_at", "2020-08-26 13:17:40.631946"]]
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 12.2ms | Allocations: 4241)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 09:17:57 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test", "lat"=>"Test", "lon"=>"Test", "trip_id"=>"22", "location"=>{"name"=>"Test", "lat"=>"Test", "lon"=>"Test", "trip_id"=>"22"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:20:14 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:20:14 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2576)
+
+
+  [1m[36mTrip Load (5.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 12.1ms | Allocations: 13132)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 09:22:41 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:22:41 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 3987)
+
+
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 4.7ms | Allocations: 12870)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 09:23:47 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:23:47 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (6.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.4ms | Allocations: 2990)
+
+
+  [1m[36mTrip Load (7.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 18.1ms | Allocations: 12796)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 09:24:16 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"2", "location"=>{"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"2"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:39:08 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:39:08 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (2.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (2.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 2.2ms | Allocations: 3077)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 161ms (Views: 0.2ms | ActiveRecord: 5.7ms | Allocations: 12947)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 09:39:27 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"1", "location"=>{"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"1"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:41:13 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:41:13 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 3.5ms | Allocations: 3356)
+
+
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 11.7ms | Allocations: 13123)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 09:41:19 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qewr", "lat"=>"qewr", "lon"=>"qewr", "trip_id"=>"1", "location"=>{"name"=>"qewr", "lat"=>"qewr", "lon"=>"qewr", "trip_id"=>"1"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started POST "/locations" for ::1 at 2020-08-26 09:43:41 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test2", "lat"=>"30", "lon"=>"30", "trip_id"=>"11", "location"=>{"name"=>"Test2", "lat"=>"30", "lon"=>"30", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:46:11 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:46:11 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (2.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 2988)
+
+
+  [1m[36mTrip Load (4.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (15.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (5.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 86ms (Views: 0.2ms | ActiveRecord: 30.9ms | Allocations: 12794)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 09:47:44 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:47:44 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+Started POST "/locations" for ::1 at 2020-08-26 09:47:44 -0400
+  [1m[36mLocation Load (6.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (16.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 6.9ms | Allocations: 3149)
+
+
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 27.5ms | Allocations: 14252)
+
+
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test2", "lat"=>"30", "lon"=>"30", "trip_id"=>"11", "location"=>{"name"=>"Test2", "lat"=>"30", "lon"=>"30", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:48:11 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:48:11 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (44.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 54ms (Views: 0.1ms | ActiveRecord: 44.6ms | Allocations: 3066)
+
+
+  [1m[36mTrip Load (27.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 48ms (Views: 0.1ms | ActiveRecord: 32.5ms | Allocations: 12838)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 09:48:16 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test2", "lat"=>"30", "lon"=>"30", "trip_id"=>"11", "location"=>{"name"=>"Test2", "lat"=>"30", "lon"=>"30", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:49:07 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:49:07 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mTrip Load (4.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 3089)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (18.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 53ms (Views: 0.1ms | ActiveRecord: 29.3ms | Allocations: 13132)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 09:49:37 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:49:37 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (9.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Processing by LocationsController#index as */*
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 3340)
+
+
+  [1m[36mLocation Load (16.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 69ms (Views: 0.1ms | ActiveRecord: 36.2ms | Allocations: 13133)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 09:49:39 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 09:59:13 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:59:13 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 2824)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 7.0ms | Allocations: 12948)
+
+
+Started POST "/trips" for ::1 at 2020-08-26 09:59:17 -0400
+Processing by TripsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "trip"=>{"name"=>"Test3"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[36mTrip Create (4.2ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test3"], ["created_at", "2020-08-26 13:59:17.894076"], ["updated_at", "2020-08-26 13:59:17.894076"]]
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 23]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 23]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 7.3ms | Allocations: 4144)
+
+
+Started POST "/trips" for ::1 at 2020-08-26 09:59:22 -0400
+Processing by TripsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"22", "trip"=>{"name"=>"qwer"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[36mTrip Create (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qwer"], ["created_at", "2020-08-26 13:59:22.268101"], ["updated_at", "2020-08-26 13:59:22.268101"]]
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 24]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 24]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 4143)
+
+
+Started POST "/trips" for ::1 at 2020-08-26 09:59:26 -0400
+Processing by TripsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"22", "trip"=>{"name"=>"qwer"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "qwer"], ["created_at", "2020-08-26 13:59:26.893752"], ["updated_at", "2020-08-26 13:59:26.893752"]]
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trips_controller.rb:17:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 25]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 25]]
+  ↳ app/controllers/trips_controller.rb:19:in `create'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 5.3ms | Allocations: 4143)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 09:59:57 -0400
+Started GET "/locations" for ::1 at 2020-08-26 09:59:57 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (6.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+Processing by LocationsController#index as */*
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 2917)
+
+
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 23]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 23]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 24]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 24]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 25]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 25]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 22.8ms | Allocations: 18386)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 10:00:02 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started POST "/locations" for ::1 at 2020-08-26 10:00:18 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"22", "location"=>{"name"=>"qwer", "lat"=>"qwer", "lon"=>"qwer", "trip_id"=>"22"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started POST "/locations" for ::1 at 2020-08-26 10:00:32 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started POST "/locations" for ::1 at 2020-08-26 10:00:35 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 10:02:19 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:02:19 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 3430)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 23]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 23]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 24]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 24]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 25]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 25]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 8.7ms | Allocations: 18118)
+
+
+Started DELETE "/trips/24" for ::1 at 2020-08-26 10:02:31 -0400
+Processing by TripsController#destroy as JSON
+  Parameters: {"id"=>"24", "trip"=>{}}
+  [1m[36mTrip Load (5.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:33:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 24]]
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[36mTrip Destroy (14.2ms)[0m  [1m[31mDELETE FROM "trips" WHERE "trips"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 20.1ms | Allocations: 3609)
+
+
+Started DELETE "/trips/25" for ::1 at 2020-08-26 10:02:34 -0400
+Processing by TripsController#destroy as JSON
+  Parameters: {"id"=>"25", "trip"=>{}}
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:33:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 25]]
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[36mTrip Destroy (2.5ms)[0m  [1m[31mDELETE FROM "trips" WHERE "trips"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 3.5ms | Allocations: 3594)
+
+
+Started DELETE "/trips/23" for ::1 at 2020-08-26 10:02:38 -0400
+Processing by TripsController#destroy as JSON
+  Parameters: {"id"=>"23", "trip"=>{}}
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:33:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 23]]
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[36mTrip Destroy (0.4ms)[0m  [1m[31mDELETE FROM "trips" WHERE "trips"."id" = $1[0m  [["id", 23]]
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trips_controller.rb:34:in `destroy'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 3591)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 10:02:48 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/locations" for ::1 at 2020-08-26 10:03:26 -0400
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2574)
+
+
+Started GET "/locations" for ::1 at 2020-08-26 10:04:27 -0400
+Started GET "/trips" for ::1 at 2020-08-26 10:04:27 -0400
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (3.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 3.5ms | Allocations: 2577)
+
+
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (2.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 12.5ms | Allocations: 10081)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 10:22:51 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:22:51 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 11520)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 12.0ms | Allocations: 22581)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 10:22:54 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started POST "/locations" for ::1 at 2020-08-26 10:23:25 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 10:24:42 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:24:42 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (2.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.3ms | Allocations: 2825)
+
+
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 9.8ms | Allocations: 12926)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 10:25:01 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:25:01 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (10.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 10.2ms | Allocations: 3603)
+
+
+  [1m[35m (23.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 53ms (Views: 0.1ms | ActiveRecord: 35.9ms | Allocations: 12924)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 10:25:54 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:25:54 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (3.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (10.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 10.2ms | Allocations: 2657)
+
+
+  [1m[35m (25.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 55ms (Views: 0.1ms | ActiveRecord: 34.4ms | Allocations: 13293)
+
+
+Started PATCH "/trips/11" for ::1 at 2020-08-26 10:26:25 -0400
+Processing by TripsController#update as JSON
+  Parameters: {"name"=>"Monday", "description"=>"Back to the grind", "id"=>"11", "trip"=>{"name"=>"Monday", "description"=>"Back to the grind"}}
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:26:in `update'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+Completed 200 OK in 9ms (Views: 4.3ms | ActiveRecord: 1.0ms | Allocations: 3773)
+
+
+Started PATCH "/trips/11" for ::1 at 2020-08-26 10:26:26 -0400
+Processing by TripsController#update as JSON
+  Parameters: {"name"=>"Monday", "description"=>"Back to the grind", "id"=>"11", "trip"=>{"name"=>"Monday", "description"=>"Back to the grind"}}
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:26:in `update'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 0.8ms | Allocations: 3549)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 10:29:36 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:29:36 -0400
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (2.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Processing by LocationsController#index as */*
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  [1m[36mLocation Load (3.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.7ms | Allocations: 3420)
+
+
+  [1m[36mLocation Load (14.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (23.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 149ms (Views: 0.1ms | ActiveRecord: 58.4ms | Allocations: 13297)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 10:30:59 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:30:59 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2657)
+
+
+  [1m[36mTrip Load (21.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (4.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (6.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 68ms (Views: 0.2ms | ActiveRecord: 47.8ms | Allocations: 13293)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 10:32:14 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:32:14 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 2657)
+
+
+  [1m[36mTrip Load (20.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 48ms (Views: 0.1ms | ActiveRecord: 31.1ms | Allocations: 13284)
+
+
+Started GET "/trips" for ::1 at 2020-08-26 10:39:35 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:39:35 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 3736)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (14.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 67ms (Views: 0.1ms | ActiveRecord: 34.2ms | Allocations: 13111)
+
+
+Started PATCH "/locations/8" for ::1 at 2020-08-26 10:39:48 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Test1", "lat"=>"20.0", "lon"=>"20.0", "id"=>"8", "location"=>{"name"=>"Test1", "lat"=>"20.0", "lon"=>"20.0"}}
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (3.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mLocation Update (5.2ms)[0m  [1m[33mUPDATE "locations" SET "name" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["name", "Test1"], ["updated_at", "2020-08-26 14:39:48.079697"], ["id", 8]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 50ms (Views: 0.5ms | ActiveRecord: 17.1ms | Allocations: 4956)
+
+
+Started PATCH "/locations/8" for ::1 at 2020-08-26 10:40:00 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Test1", "lat"=>"21.0", "lon"=>"20.0", "id"=>"8", "location"=>{"name"=>"Test1", "lat"=>"21.0", "lon"=>"20.0"}}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (5.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mLocation Update (8.6ms)[0m  [1m[33mUPDATE "locations" SET "lat" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["lat", "21.0"], ["updated_at", "2020-08-26 14:40:00.757070"], ["id", 8]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 27ms (Views: 0.3ms | ActiveRecord: 17.0ms | Allocations: 4601)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 10:40:09 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 10:42:59 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:42:59 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 3453)
+
+
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (4.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 48ms (Views: 0.1ms | ActiveRecord: 10.7ms | Allocations: 13224)
+
+
+Started PATCH "/trips/22" for ::1 at 2020-08-26 10:43:10 -0400
+Processing by TripsController#update as JSON
+  Parameters: {"name"=>"Test", "description"=>"Test", "id"=>"22", "trip"=>{"name"=>"Test", "description"=>"Test"}}
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:26:in `update'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:29:in `update'
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.9ms | Allocations: 2966)
+
+
+Started PATCH "/locations/9" for ::1 at 2020-08-26 10:43:16 -0400
+Processing by LocationsController#update as JSON
+  Parameters: {"name"=>"Test2", "lat"=>"30.0", "lon"=>"30.0", "id"=>"9", "location"=>{"name"=>"Test2", "lat"=>"30.0", "lon"=>"30.0"}}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:24:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:25:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 3777)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 10:43:19 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11", "location"=>{"name"=>"Test3", "lat"=>"40", "lon"=>"40", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 10:43:49 -0400
+Started GET "/locations" for ::1 at 2020-08-26 10:43:49 -0400
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 2656)
+
+
+Processing by TripsController#index as */*
+  [1m[36mTrip Load (1.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 8.8ms | Allocations: 10164)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 10:43:59 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"qwre", "lon"=>"qwer", "trip_id"=>"11", "location"=>{"name"=>"qwer", "lat"=>"qwre", "lon"=>"qwer", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 11:04:36 -0400
+Started GET "/locations" for ::1 at 2020-08-26 11:04:36 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mTrip Load (58.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (77.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 86ms (Views: 0.8ms | ActiveRecord: 77.1ms | Allocations: 3614)
+
+
+  [1m[35m (42.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (2.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 191ms (Views: 0.2ms | ActiveRecord: 112.0ms | Allocations: 13599)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 11:04:50 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"23", "lon"=>"23", "trip_id"=>"22", "location"=>{"name"=>"qwer", "lat"=>"23", "lon"=>"23", "trip_id"=>"22"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/locations" for ::1 at 2020-08-26 11:05:15 -0400
+Started GET "/trips" for ::1 at 2020-08-26 11:05:15 -0400
+Processing by LocationsController#index as */*
+Processing by TripsController#index as */*
+  [1m[36mLocation Load (15.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 15.3ms | Allocations: 3068)
+
+
+  [1m[36mTrip Load (14.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (3.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 115ms (Views: 0.1ms | ActiveRecord: 20.9ms | Allocations: 12954)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 11:05:22 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"12", "lon"=>"12", "trip_id"=>"11", "location"=>{"name"=>"qwer", "lat"=>"12", "lon"=>"12", "trip_id"=>"11"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 107)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/locations_controller.rb:14:in `create'
+Started GET "/trips" for ::1 at 2020-08-26 11:09:35 -0400
+Started GET "/locations" for ::1 at 2020-08-26 11:09:35 -0400
+Processing by TripsController#index as */*
+Processing by LocationsController#index as */*
+  [1m[36mLocation Load (16.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC[0m
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 269ms (Views: 1.1ms | ActiveRecord: 240.2ms | Allocations: 12284)
+
+
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 1]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 2]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 11]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "locations"."id" FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."trip_id" = $1[0m  [["trip_id", 22]]
+  ↳ app/controllers/trips_controller.rb:6:in `index'
+Completed 200 OK in 349ms (Views: 0.3ms | ActiveRecord: 259.7ms | Allocations: 23740)
+
+
+Started POST "/locations" for ::1 at 2020-08-26 11:09:46 -0400
+Processing by LocationsController#create as JSON
+  Parameters: {"name"=>"qwer", "lat"=>"12", "lon"=>"12", "trip_id"=>"11", "location"=>{"name"=>"qwer", "lat"=>"12", "lon"=>"12", "trip_id"=>"11"}}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:15:in `create'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:15:in `create'
+  [1m[36mLocation Create (3.8ms)[0m  [1m[32mINSERT INTO "locations" ("name", "lat", "lon", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "qwer"], ["lat", "12.0"], ["lon", "12.0"], ["trip_id", 11], ["created_at", "2020-08-26 15:09:46.190431"], ["updated_at", "2020-08-26 15:09:46.190431"]]
+  ↳ app/controllers/locations_controller.rb:15:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:15:in `create'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 6.4ms | Allocations: 4208)
+
+
